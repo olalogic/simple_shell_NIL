@@ -14,7 +14,6 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 		{"setenv", new_setenv},
 		{"unsetenv", new_unsetenv},
 		{"help", new_help},
-		{"cd", new_cd},
 		{"history", new_history},
 
 		{NULL, NULL}};
