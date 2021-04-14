@@ -155,7 +155,8 @@ void *add_nodeint(history_t **head, char *str);
 void free_listint(history_t *head);
 ssize_t _puts3(char *str);
 void print_message(char *str);
+/** handles signals**/
 
-
+void end_of_file(char *buffer);
 unsigned int sig_flag;
 #endif /* _SHELL_HOLBERTON_ */

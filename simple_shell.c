@@ -14,6 +14,20 @@ static void sig_handler(int unused)
 	else
 		_puts("\n");
 }
+/**
+ * end_of_file - handles ^C signal interupt
+ * @buffer: unused variable (required for signal function prototype)
+ *
+ * Return: void
+ */
+
+void end_of_file(char *buffer)
+{
+	UNUSED(buffer);
+	if (isatty(STDIN_FILENO))
+		print_message("^D");
+		write(STDOUT_FILENO, "\n", 1);
+}
 
 /**
  * main - main function for the shell
@@ -27,6 +41,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
 	size_t len_buffer = 0;
 	unsigned int i;
+	int eof;
 
 	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL};
 
@@ -36,14 +51,16 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	signal(SIGINT, sig_handler);
 	_puts("$ ");
 
-	while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
+	while (1)
 	{
+		eof = getline(&(vars.buffer), &len_buffer, stdin);
+		if (eof == EOF)
+		{
+		end_of_file(vars.buffer);
+		}
 		vars.counter++;
-
 		add_nodeint(&vars.history, vars.buffer);
-
 		vars.commands = tokenizer(vars.buffer, ";");
-
 		for (i = 0; vars.commands && vars.commands[i] != NULL; i++)
 		{
 			vars.array_tokens = tokenizer(vars.commands[i], " \t\r\n\a");
