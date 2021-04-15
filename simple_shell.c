@@ -10,7 +10,7 @@ static void sig_handler(int unused)
 {
 	(void)unused;
 	if (sig_flag == 0)
-		_puts("\n1 ");
+		_puts("\n$ ");
 	else
 		_puts("\n");
 }
@@ -63,7 +63,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 		free(vars.buffer);
 		free(vars.commands);
 		if (is_pipe == 0)
-			_puts("3 ");
+			_puts("$ ");
 		vars.buffer = NULL;
 	}
 	free_env(vars.env);
