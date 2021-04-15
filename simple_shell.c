@@ -10,7 +10,7 @@ static void sig_handler(int unused)
 {
 	(void)unused;
 	if (sig_flag == 0)
-		_puts("\n#$ ");
+		_puts("\n$ ");
 	else
 		_puts("\n");
 }
@@ -31,7 +31,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL};
 
 	vars.argv = argv;
-	vars.env = make_enviroment(environment);
+	vars.env = environment;
 
 	signal(SIGINT, sig_handler);
 
@@ -58,7 +58,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 		free(vars.buffer);
 		free(vars.commands);
 		if (is_pipe == 0)
-			_puts("#$ ");
+			_puts("$ ");
 		vars.buffer = NULL;
 	}
 	free_env(vars.env);
