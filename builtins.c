@@ -14,7 +14,7 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 		{"setenv", new_setenv},
 		{"unsetenv", new_unsetenv},
 		{"help", new_help},
-		
+
 
 		{NULL, NULL}};
 
@@ -60,8 +60,8 @@ void new_exit(vars_t *vars)
 	}
 	free(vars->commands);
 	free(vars->array_tokens);
-	
-	
+
+
 	free_env(vars->env);
 	free(vars->buffer);
 	exit(vars->status);

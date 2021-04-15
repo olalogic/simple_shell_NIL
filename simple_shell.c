@@ -10,7 +10,7 @@ static void sig_handler(int unused)
 {
 	(void)unused;
 	if (sig_flag == 0)
-		_puts("\n#cisfun$ ");
+		_puts("\n#$ ");
 	else
 		_puts("\n");
 }
@@ -31,16 +31,13 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	if (!isatty(STDIN_FILENO))
 		is_pipe = 1;
 	if (is_pipe == 0)
-		_puts("#cisfun$ ");
+		_puts("$ ");
 	sig_flag = 0;
 
-	while ( getline(&(vars.buffer), &len_buffer, stdin) != -1)
+	while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
 	{
 		vars.counter++;
-
-		
 		vars.commands = tokenizer(vars.buffer, ";");
-
 		for (i = 0; vars.commands && vars.commands[i] != NULL; i++)
 		{
 			vars.array_tokens = tokenizer(vars.commands[i], " \t\r\n\a");
@@ -54,7 +51,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 		free(vars.buffer);
 		free(vars.commands);
 		if (is_pipe == 0)
-			_puts("#cisfun$ ");
+			_puts("#$ ");
 		vars.buffer = NULL;
 	}
 	free_env(vars.env);
