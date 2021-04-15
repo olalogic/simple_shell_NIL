@@ -62,6 +62,8 @@ void new_exit(vars_t *vars)
 	free(vars->commands);
 	free(vars->array_tokens);
 
+
+	free_env(vars->env);
 	free(vars->buffer);
 	exit(vars->status);
 }

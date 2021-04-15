@@ -31,7 +31,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL};
 
 	vars.argv = argv;
-	vars.env = environment;
+	vars.env = make_enviroment(environment);
 
 	signal(SIGINT, sig_handler);
 
