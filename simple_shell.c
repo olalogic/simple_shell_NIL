@@ -14,7 +14,14 @@ static void sig_handler(int unused)
 	else
 		_puts("\n");
 }
-
+/**
+ * main - main function for the shell
+ * @argc: number of arguments passed to main, unused
+ * @argv: array of arguments passed to main
+ * @environment: array of environment variables
+ *
+ * Return: 0 or exit status, or ?
+ */
 int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
 	size_t len_buffer = 0;
