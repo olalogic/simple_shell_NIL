@@ -10,19 +10,11 @@ static void sig_handler(int unused)
 {
 	(void)unused;
 	if (sig_flag == 0)
-		_puts("\n$ ");
+		_puts("\n#cisfun$ ");
 	else
 		_puts("\n");
 }
 
-/**
- * main - main function for the shell
- * @argc: number of arguments passed to main, unused
- * @argv: array of arguments passed to main
- * @environment: array of environment variables
- *
- * Return: 0 or exit status, or ?
- */
 int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
 	size_t len_buffer = 0;
@@ -39,15 +31,14 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	if (!isatty(STDIN_FILENO))
 		is_pipe = 1;
 	if (is_pipe == 0)
-		_puts("$ ");
+		_puts("#cisfun$ ");
 	sig_flag = 0;
 
-	while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
+	while ( getline(&(vars.buffer), &len_buffer, stdin) != -1)
 	{
 		vars.counter++;
 
-		add_nodeint(&vars.history, vars.buffer);
-
+		
 		vars.commands = tokenizer(vars.buffer, ";");
 
 		for (i = 0; vars.commands && vars.commands[i] != NULL; i++)
@@ -63,7 +54,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 		free(vars.buffer);
 		free(vars.commands);
 		if (is_pipe == 0)
-			_puts("$ ");
+			_puts("#cisfun$ ");
 		vars.buffer = NULL;
 	}
 	free_env(vars.env);
