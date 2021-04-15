@@ -21,14 +21,6 @@ static void sig_handler(int unused)
  * Return: void
  */
 
-void end_of_file(char *buffer)
-{
-	UNUSED(buffer);
-	if (isatty(STDIN_FILENO))
-		print_message("^D");
-		write(STDOUT_FILENO, "\n", 1);
-}
-
 /**
  * main - main function for the shell
  * @argc: number of arguments passed to main, unused
@@ -41,7 +33,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
 	size_t len_buffer = 0;
 	unsigned int i;
-	int eof;
+	unsigned int is_pipe = 0;
 
 	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL};
 
@@ -49,15 +41,16 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	vars.env = make_enviroment(environment);
 
 	signal(SIGINT, sig_handler);
-	_puts("$ ");
 
-	while (1)
+	if (!isatty(STDIN_FILENO))
+		is_pipe = 1;
+	if (is_pipe == 0)
+			_puts("$ ");
+	sig_flag = 0;
+	while (getline(&(vars.buffer), &len_buffer, stdin) != 1)
 	{
-		eof = getline(&(vars.buffer), &len_buffer, stdin);
-		if (eof == EOF)
-		{
-		end_of_file(vars.buffer);
-		}
+		sig_flag = 1;
+
 		vars.counter++;
 		add_nodeint(&vars.history, vars.buffer);
 		vars.commands = tokenizer(vars.buffer, ";");
@@ -66,17 +59,20 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 			vars.array_tokens = tokenizer(vars.commands[i], " \t\r\n\a");
 			if (vars.array_tokens && vars.array_tokens[0])
 				if (check_for_builtins(&vars) == NULL)
-				{
 					fork_child(vars);
-				}
+
 			free(vars.array_tokens);
 		}
 		free(vars.buffer);
 		free(vars.commands);
-
-		_puts("$ ");
+		sig_flag = 0;
+		if (is_pipe == 0)
+			_puts("$ ");
 		vars.buffer = NULL;
 	}
-
+	if (is_pipe == 0)
+		_puts("\n");
+	free_env(vars.env);
+	free(vars.buffer);
 	exit(vars.status);
 }
