@@ -1,4 +1,4 @@
-# Simple_shell
+# Holberton projecto: simple_shell
 ## Table of Contents
 * [Description](#description)
 * [File Structure](#file-structure)
