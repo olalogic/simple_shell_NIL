@@ -29,7 +29,7 @@ Standard functions and system calls employed in simple_shell include:
 	* `new_setenv` -  create a new environment variable, or edit an existing variable
 	* `new_unsetenv` - removes an environment variable
 
-* [builtins2.c](builtins2.c) - More builtin functions
+* [builtins2.c](builtins2.c) - Builtin functions that involves 'cd' builtin command.
 	* `_new_cd` - Changes the current working directory .
 
 * [enviroment](enviroment) - More builtin functions
