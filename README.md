@@ -18,11 +18,11 @@ Standard functions and system calls employed in simple_shell include:
 	 `access, execve, exit, fork, free, fstat, getline, malloc, perror, signal, stat, wait, write.`
 
 ## File Structure
-* [holberton.h](holberton.h) - program header file
+* [holberton.h](holberton.h) -Program header file
 
 * [.simple_shell_history](.simple_shell_history) - File where history's historial must be saved
 
-* [builtins.c](builtins.c) - major builtin functions
+* [builtins.c](builtins.c) - Major builtin functions
 	* `check_for_builtins` - checks if the command is a builtin
 	* `new_exit` - exits the shell with the option of a specified status
 	* `_env` - prints the current shell's environment variables to the standard output
