@@ -33,18 +33,18 @@ Standard functions and system calls employed in simple_shell include:
 	* `_new_cd` - Changes the current working directory .
 
 * [enviroment](enviroment) - More builtin functions
-	* `make_enviroment` - make the shell environment from the environment.
-	* `free_env` - free the shell's environment
+	* `make_enviroment` - Make the shell environment from the environment.
+	* `free_env` - Free the shell's environment
 
 * [history.c](history.c) - History builting and funcions related to it.
 	* `add_nodeint` - Add node in the beginning
-	* `free_listint` - free pointers related with malloc
+	* `free_listint` - Free pointers related with malloc
 	* `new_history` - Print the list of a single list
-	* `_puts3` - writes a string to standard output
+	* `_puts3` - Writes a string to standard output
 	* `print_message` - print a string to standart output
 
-* [add_functions.c](add_functions.c) - Helpers functions for fork_child function
-	* `_strcmp` - compares two strings
+* [add_functions.c](add_functions.c) - Helpers functions for forking process
+	* `_strcmp` - Compares two strings
 	* `error_printing` - Prints a message error when a comand is not found.
 	* `exec_error` - Prints exec errors.
 
