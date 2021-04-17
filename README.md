@@ -36,14 +36,14 @@ Standard functions and system calls employed in simple_shell include:
 	* `make_enviroment` - make the shell environment from the environment.
 	* `free_env` - free the shell's environment
 
-* [history.c](history.c) - history builting and funcions related.
+* [history.c](history.c) - History builting and funcions related to it.
 	* `add_nodeint` - Add node in the beginning
 	* `free_listint` - free pointers related with malloc
 	* `new_history` - Print the list of a single list
 	* `_puts3` - writes a string to standard output
 	* `print_message` - print a string to standart output
 
-* [add_functions.c](add_functions.c) - helpers functions for fork_child function
+* [add_functions.c](add_functions.c) - Helpers functions for fork_child function
 	* `_strcmp` - compares two strings
 	* `error_printing` - Prints a message error when a comand is not found.
 	* `exec_error` - Prints exec errors.
