@@ -23,11 +23,11 @@ Standard functions and system calls employed in simple_shell include:
 * [.simple_shell_history](.simple_shell_history) - File where history's historial must be saved
 
 * [builtins.c](builtins.c) - Major builtin functions
-	* `check_for_builtins` - checks if the command is a builtin
-	* `new_exit` - exits the shell with the option of a specified status
-	* `_env` - prints the current shell's environment variables to the standard output
-	* `new_setenv` -  create a new environment variable, or edit an existing variable
-	* `new_unsetenv` - removes an environment variable
+	* `check_for_builtins` - Checks if the command is a builtin
+	* `new_exit` - Exits the shell with the option of a specified status
+	* `_env` - Prints the current shell's environment variables to the standard output
+	* `new_setenv` -  Create a new environment variable, or edit an existing variable
+	* `new_unsetenv` - Removes an environment variable
 
 * [builtins2.c](builtins2.c) - Builtin functions that involves 'cd' builtin command.
 	* `_new_cd` - Changes the current working directory .
@@ -41,7 +41,7 @@ Standard functions and system calls employed in simple_shell include:
 	* `free_listint` - Free pointers related with malloc
 	* `new_history` - Print the list of a single list
 	* `_puts3` - Writes a string to standard output
-	* `print_message` - print a string to standart output
+	* `print_message` - Print a string to standart output
 
 * [add_functions.c](add_functions.c) - Helpers functions for forking process
 	* `_strcmp` - Compares two strings
@@ -49,22 +49,22 @@ Standard functions and system calls employed in simple_shell include:
 	* `exec_error` - Prints exec errors.
 
 * [helper_functions.c](helper_functions.c) - Functions to manage error messages     	and utils
-	* `_puts_error` - print a string to sdandart error
-	* `prints_error_msg` - prints error messages to standard error
-	* `integer_converter` - converts an unsigned int to a string
-	* `atoi` - converts a string into an integer
+	* `_puts_error` - Print a string to sdandart error
+	* `prints_error_msg` - Prints error messages to standard error
+	* `integer_converter` - Converts an unsigned int to a string
+	* `atoi` - Converts a string into an integer
 
 * [setenv_functions.c](setenv_functions.c) - helper functions for setenv builting
-	* `add_value` - create a new environment variable string
-	* `find_key` - finds an environment variable
-	* `add_key` - create a new environment variable
+	* `add_value` - Creates a new environment variable string
+	* `find_key` - Finds an environment variable
+	* `add_key` - Create a new environment variable
 
 * [memory_allocation.c](memory_allocation.c) - memory allocation functions
-	* `_realloc` - a custom realloc function for arrays of pointers
+	* `_realloc` - A custom realloc function for arrays of pointers
 
-* [new_strtok.c](new_strtok.c) - custom strtok and helper functions
-	* `check_match` - checks if a character matches any in a string
-	* `new_strtok` - a custom strtok for the shell
+* [new_strtok.c](new_strtok.c) - Custom strtok and helper functions
+	* `check_match` - Checks if a character matches any in a string
+	* `new_strtok` - A custom strtok for the shell
 	* `build_path` - Combines two strings one representing the path directory and another representing the command file.
 
 * [fork_child.c](fork_child.c) - functions related to executing commands
@@ -78,15 +78,15 @@ Standard functions and system calls employed in simple_shell include:
 	*  for a specific file aka command.
 
 * [simple_shell.c](simple_shell.c) - essential functions to the shell
-	* `main` - the main function of the program
-	* `sig_handler` - handles SIGINT
+	* `main` - The main function of the program
+	* `sig_handler` - Handles SIGINT
 
 * [strfunctions.c](strfunctions.c) - functions related to string manipulation
-	* `_puts` - writes a string to standart output
-	* `_strdup` - duplicates a string
-	* `_strcmpr` - compares two strings
-	* `_strcat` - concatenates two strings with a `/` in the middle
-	* `_strlen` - calculates the length of a string
+	* `_puts` - Writes a string to standart output
+	* `_strdup` - Duplicates a string
+	* `_strcmpr` - Compares two strings
+	* `_strcat` - Concatenates two strings with a `/` in the middle
+	* `_strlen` - Calculates the length of a string
 
 * [tokenizer.c](tokenizer.c) - tokenizing function
 	* `tokenizer` - creates an array of tokens from a buffer with a specified delimiter
@@ -95,21 +95,21 @@ Standard functions and system calls employed in simple_shell include:
 	* `count_token` - token's count
 
 * [new_help.c](new_help.c) - Help builting and functions
-	* `new_help` - help builtin command
-	* `new_help_help` -  help builtin command help
-	* `new_help_exit` - help builtin command exit
-	* `new_help_cd` - help builtin command cd
-	* `new_help_env` -  help builtin command env
+	* `new_help` - Help builtin command
+	* `new_help_help` -  Help builtin command help
+	* `new_help_exit` - Help builtin command exit
+	* `new_help_cd` - Help builtin command cd
+	* `new_help_env` -  Help builtin command env
 
 * [more_help_functions.c](more_help_functions.c) - More help functions
-	* `new_help_history` - help builtin command history
-	* `new_help_unalias` - help builtin command unalias
-	* `new_help_unset` - help builtin command unset
-	* `new_help_unsetenv` -  help builtin command unsetenv
-	* `new_help_setenv` -  help builtin command setenv
+	* `new_help_history` - Help builtin command history
+	* `new_help_unalias` - Help builtin command unalias
+	* `new_help_unset` - Help builtin command unset
+	* `new_help_unsetenv` - Help builtin command unsetenv
+	* `new_help_setenv` -  Help builtin command setenv
 
 * [more_help_functions2.c](more_help_functions2.c) -  More help functions
-	* `new_help_alias` - help builtin command alias
+	* `new_help_alias` - Help builtin command alias
 	* `new_help_else` - Error message if not command found
 
 * [print_functions.c](print_functions.c) -  More utils
