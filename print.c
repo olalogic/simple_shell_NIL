@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /*** PRINT WITOUTH USING PRINF AND ADDING NEWLINE AS NEEDED ***/
 /**
